@@ -1,0 +1,19 @@
+﻿::selection {
+    background: none;
+}
+
+.platform {
+    position: absolute;
+    border: 1px solid #FFFFFF;
+    background-color: #FFFFFF;
+    display: inline-block;
+}
+
+.player {
+    color: white;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    display: inline-block;
+}

@@ -1,0 +1,93 @@
+﻿@page "/game"
+@using System.Timers;
+@using KLA2023_DevDay.GameLogic;
+@using KLA2023_DevDay.GameLogic.GameObjects
+@inject IJSRuntime js;
+@inject IControls Controls;
+@inject IWorld World;
+@inject IGraphics Graphics;
+
+<PageTitle>Game</PageTitle>
+
+<h3>Game</h3>
+
+
+<div id="game-window"
+    @onkeydown="HandleKeyDown"
+    @onkeyup="HandleKeyUp"
+    @onkeydown:preventDefault
+    style="background-color: #000000; width: @(World.Width.HasValue ? $"{World.Width}px" : "80vw"); height: @(World.Height.HasValue ? $"{World.Height}px" : "80vh"); margin: auto;"
+    tabindex="0"
+    @ref="mainDiv">
+    <div class="player" style="top: @(_player.Top + World.TopOffset)px; left: @(_player.Left + World.LeftOffset)px; transform: scaleX(@(Graphics.PlayerDirection)); transform: scale(@(2*Math.Min(Graphics.PlayerDirection, 1)), 2)">
+        <img src="/sprites/NES - Super Mario Bros - Mario & Luigi.png"
+            style="margin: -8px 0 0 @(-Graphics.PlayerOffset)px;" />
+    </div>
+    @foreach (var platform in _platforms)
+    {
+        <div class="platform" style="top:@(platform.Top + World.TopOffset)px; left: @(platform.Left + World.LeftOffset)px; width: @(platform.Width)px; height: @(platform.Height)px;"></div>
+    }
+</div>
+<audio id="mario-jump" preload="auto" src="/audio/maro-jump-sound-effect_1.mp3"></audio>
+
+@code {
+
+    private ElementReference mainDiv;
+    private Timer _timer;
+    private Player _player;
+    private IEnumerable<Platform> _platforms;
+
+    private void HandleKeyUp(KeyboardEventArgs e) =>
+        Controls.KeyUp(e.Code);
+
+    private void HandleKeyDown(KeyboardEventArgs e) =>
+        Controls.KeyDown(e.Code);
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("OnAfterRenderAsync: first render");
+            _player.JumpEvent += async (Player sender, object e) => {
+                await js.InvokeVoidAsync("playAudioFile", "mario-jump", 750);
+            };
+            World.Height = await js.InvokeAsync<int>("getGameWindowHeight");
+            World.Width = await js.InvokeAsync<int>("getGameWindowWidth");
+            World.TopOffset = await js.InvokeAsync<int>("getGameWindowTop");
+            World.LeftOffset = await js.InvokeAsync<int>("getGameWindowLeft");
+            Console.WriteLine("first render complete");
+            await mainDiv.FocusAsync();
+        }
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        Console.WriteLine("OnInitializedAsync");
+        _player = World.GetPlayer();
+        _platforms = World.GetPlatforms();
+        _timer = new Timer();
+        _timer.Interval = 16;
+        _timer.Elapsed += TimerElapsed;
+        _timer.AutoReset = true;
+        _timer.Enabled = true;
+        Console.Write("OnInitializedAsync complete");
+        return base.OnInitializedAsync();
+    }
+
+    private void TimerElapsed(Object source, System.Timers.ElapsedEventArgs e)
+    {
+        Update();
+        Draw();
+    }
+
+    private void Update()
+    {
+        World.ApplyPhysics();
+        Graphics.CyclePlayer();
+    }
+
+    private void Draw()
+    {
+        this.StateHasChanged();
+    }
+}
