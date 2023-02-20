@@ -21,6 +21,9 @@ jobs:
         # changes the base-tag in index.html from '/' to 'KLA2023_DevDay' to match GitHub Pages repository subdirectory
         - name: Change base-tag in index.html from / to KLA2023_DevDay
           run: sed -i 's/<base href="\/" \/>/<base href="\/KLA2023_DevDay\/" \/>/g' release/wwwroot/index.html
+        # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+        - name: Add .nojekyll file
+          run: touch release/wwwroot/.nojekyll
         # commits wwwroot to github pages
         - name: Commit wwwroot to GitHub Pages
           uses: JamesIves/github-pages-deploy-action@3.7.1
