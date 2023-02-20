@@ -20,7 +20,7 @@
     tabindex="0"
     @ref="mainDiv">
     <div class="player" style="top: @(_player.Top + World.TopOffset)px; left: @(_player.Left + World.LeftOffset)px; transform: scaleX(@(Graphics.PlayerDirection)); transform: scale(@(2*Math.Min(Graphics.PlayerDirection, 1)), 2)">
-        <img src="/sprites/NES - Super Mario Bros - Mario & Luigi.png"
+        <img src="/sprites/mario_sprites.png"
             style="margin: -8px 0 0 @(-Graphics.PlayerOffset)px;" />
     </div>
     @foreach (var platform in _platforms)
