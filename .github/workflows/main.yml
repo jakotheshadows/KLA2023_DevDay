@@ -18,6 +18,9 @@ jobs:
         # publishes Blazor project to the release-folder
         - name: Publish .NET Project
           run: dotnet publish ./KLA2023_DevDay/KLA2023_DevDay.csproj -c Release -o release --nologo
+        # changes the base-tag in index.html from '/' to 'KLA2023_DevDay' to match GitHub Pages repository subdirectory
+        - name: Change base-tag in index.html from / to KLA2023_DevDay
+          run: sed -i 's/<base href="\/" \/>/<base href="\/KLA2023_DevDay\/" \/>/g' release/wwwroot/index.html
         # commits wwwroot to github pages
         - name: Commit wwwroot to GitHub Pages
           uses: JamesIves/github-pages-deploy-action@3.7.1
