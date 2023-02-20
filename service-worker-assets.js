@@ -33,11 +33,11 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-Ly\/w2ewqWDRoI8LZsIS6d3NPe6i5eL6NO3E\/nl3JyTU=",
+      "hash": "sha256-Pu9MUHr5OS9VRWRP5whyUwt3yJa4RX8qKtZny1roBA8=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-t0dz0PREfnbc1Rf26MR1bI7KYqyjhSKHDTEhJioPFqQ=",
+      "hash": "sha256-mJPaQLzG2iWsIZpqh1GqtYm+spQYIupxBSV8NX2JDjo=",
       "url": "_framework\/KLA2023_DevDay.dll"
     },
     {
@@ -265,5 +265,5 @@
       "url": "sprites\/mario_sprites.png"
     }
   ],
-  "version": "3jyCZddr"
+  "version": "0wlT8G4G"
 };
