@@ -20,7 +20,7 @@
     tabindex="0"
     @ref="mainDiv">
     <div class="player" style="top: @(_player.Top + World.TopOffset)px; left: @(_player.Left + World.LeftOffset)px; transform: scaleX(@(Graphics.PlayerDirection)); transform: scale(@(2*Math.Min(Graphics.PlayerDirection, 1)), 2)">
-        <img src="/sprites/mario_sprites.png"
+        <img src="@(contentPathPrefix)/sprites/mario_sprites.png"
             style="margin: -8px 0 0 @(-Graphics.PlayerOffset)px;" />
     </div>
     @foreach (var platform in _platforms)
@@ -28,10 +28,10 @@
         <div class="platform" style="top:@(platform.Top + World.TopOffset)px; left: @(platform.Left + World.LeftOffset)px; width: @(platform.Width)px; height: @(platform.Height)px;"></div>
     }
 </div>
-<audio id="mario-jump" preload="auto" src="/audio/maro-jump-sound-effect_1.mp3"></audio>
+<audio id="mario-jump" preload="auto" src="@(contentPathPrefix)/audio/maro-jump-sound-effect_1.mp3"></audio>
 
 @code {
-
+    private string contentPathPrefix = "";
     private ElementReference mainDiv;
     private Timer _timer;
     private Player _player;
@@ -63,6 +63,11 @@
     protected override Task OnInitializedAsync()
     {
         Console.WriteLine("OnInitializedAsync");
+        #if DEBUG
+            contentPathPrefix = "";
+        #else
+            contentPathPrefix = "/KLA2023_DevDay";
+        #endif
         _player = World.GetPlayer();
         _platforms = World.GetPlatforms();
         _timer = new Timer();
