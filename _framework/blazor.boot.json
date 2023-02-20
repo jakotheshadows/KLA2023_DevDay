@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "KLA2023_DevDay.dll": "sha256-nW\/6n\/wL6UrtkGvMh+C4bYuOzl7jrFj6m9wDC3myuK8=",
+      "KLA2023_DevDay.dll": "sha256-M8WHgjWiATBwpplTbUAjF79AfZDykv1exEQxcWTv\/g8=",
       "Microsoft.AspNetCore.Components.dll": "sha256-sIXb0bAa\/Cc4B01\/U6eqApbdZHwIbeaOc9WO6jaBb4k=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-GcXanIifrMvB0MEcViblOyXMGn3bUnRR0+MoyOwCqi0=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-hItIMIcIumfGi1q3IylwSEfpyLuK1QShnYCDeXYXF+M=",
