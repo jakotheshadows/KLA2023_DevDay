@@ -33,15 +33,15 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-RUoWcwz6lRAw4EJoO\/sPbdPXmCUJfzkpj9WYCHAi3hQ=",
+      "hash": "sha256-Ly\/w2ewqWDRoI8LZsIS6d3NPe6i5eL6NO3E\/nl3JyTU=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-M8WHgjWiATBwpplTbUAjF79AfZDykv1exEQxcWTv\/g8=",
+      "hash": "sha256-t0dz0PREfnbc1Rf26MR1bI7KYqyjhSKHDTEhJioPFqQ=",
       "url": "_framework\/KLA2023_DevDay.dll"
     },
     {
-      "hash": "sha256-sIXb0bAa\/Cc4B01\/U6eqApbdZHwIbeaOc9WO6jaBb4k=",
+      "hash": "sha256-kMPvxwW1mpZZwJjnIC5deWqnXSdJXbjxq9Fr1BPoO1w=",
       "url": "_framework\/Microsoft.AspNetCore.Components.dll"
     },
     {
@@ -149,7 +149,7 @@
       "url": "_framework\/System.ObjectModel.dll"
     },
     {
-      "hash": "sha256-2SaF\/3tsSACdmS93xttzp5HpLBr6HXS8FHzb\/h\/toqQ=",
+      "hash": "sha256-J2VqrpGRn+UL\/fudwculOQ0pXfuHDguHG\/iO9vHkWFk=",
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
@@ -165,7 +165,7 @@
       "url": "_framework\/System.Runtime.CompilerServices.Unsafe.dll"
     },
     {
-      "hash": "sha256-nAoG0gWbcWdNsUF1UUJXe1e4s0qj0S6pTLHnydpFqrc=",
+      "hash": "sha256-cwmXE6Wk6fWyVvICrGd5sHJDoeQZ3F\/zDMhDLe5pEys=",
       "url": "_framework\/System.Runtime.dll"
     },
     {
@@ -265,5 +265,5 @@
       "url": "sprites\/mario_sprites.png"
     }
   ],
-  "version": "AhREhUWr"
+  "version": "3jyCZddr"
 };
