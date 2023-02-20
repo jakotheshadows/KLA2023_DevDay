@@ -262,7 +262,7 @@
     },
     {
       "hash": "sha256-SkCnCeTggSYrKqtwsIi2LqvS5Ei1ma8gZV9bamkpJfk=",
-      "url": "sprites\/NES - Super Mario Bros - Mario & Luigi.png"
+      "url": "sprites\/mario_sprites.png"
     }
   ],
   "version": "\/Cu2tg9+"
